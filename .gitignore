@@ -59,3 +59,5 @@ vendor
 webroot/css/app.css
 webroot/js/app.js
 webroot/font
+webroot/upload/*
+!.gitkeep
