@@ -8,11 +8,8 @@ module.exports = {
       app: path.join(__dirname, 'src/index.js')
   },
   output: {
-    path: path.join(__dirname, 'dist'),
-  },
-  devServer: {
-    port: 3000,
-    contentBase: ['./dist'],
+    path: path.join(__dirname, '../webroot/'),
+    filename: 'js/[name].js',
   },
   target: "node",
   module: {
@@ -23,17 +20,6 @@ module.exports = {
         use: [
           {
             loader: 'babel-loader',
-          },
-        ],
-      },
-      {
-        test: /\.html$/,
-        use: [
-          {
-            loader: 'html-loader',
-            options: {
-              minimize: false,
-            },
           },
         ],
       },
@@ -53,7 +39,7 @@ module.exports = {
                 loader: 'sass-loader',
                 options: {
                     implementation: require('sass'),
-                },
+                  },
             },
         ]
       },
@@ -90,12 +76,7 @@ module.exports = {
         CodeMirror: 'codemirror',
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-    }),
-    new HtmlWebPackPlugin({
-      inject: true,
-      template: `./src/index.html`,
-      filename: 'index.html',
+      filename: 'css/[name].css',
     }),
   ],
 };
